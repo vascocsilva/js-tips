@@ -81,3 +81,53 @@ pokemon = [...pokemon, 'Bulbasaur', 'Metapod', 'Weedle']
 // Shift
 pokemon = ['Bulbasaur', ...pokemon, 'Metapod', 'Weedle', ]
 ```
+
+## Loops
+```js
+const orders = [500, 30, 99, 15, 223];
+
+// Reduce
+const total = orders.reduce((acc, cur) => acc + cur)
+
+// Map
+const withTax = orders.map(v => v * 1.1)
+
+// Filter
+const highValue = orders.filter(v => v > 100);
+
+// Every
+const everyValueGreaterThan10 = orders.every(v => v > 10)
+
+// Some
+const someValueGreaterThan10 = orders.some(v => v > 10)
+```
+
+## Async Await
+```js
+const random = () => {
+    return Promise.resolve(Math.random())
+}
+
+const sumRandomAsyncNums = async() => {
+
+    const first = await random();
+    const second = await random();
+    const third = await random();
+
+    console.log(`Result ${first + second + third}`);
+
+    if (await random()) {
+        // do something
+    }
+
+    const randos = Promise.all([
+        random(),
+        random(),
+        random()
+    ])
+
+    for(const r of await randos) {
+        console.log(r)
+    }
+}
+```
